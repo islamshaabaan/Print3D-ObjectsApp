@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>616</width>
+    <height>697</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <widget class="QFrame" name="frame">
+      <property name="minimumSize">
+       <size>
+        <width>296</width>
+        <height>0</height>
+       </size>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QVTKOpenGLNativeWidget" name="openGLWidget">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>381</width>
+           <height>546</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <item>
+       <widget class="QPushButton" name="clearSpace_button">
+        <property name="text">
+         <string>Clear Space</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="deleteActor_button">
+        <property name="text">
+         <string>Delete Object</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBox">
+        <property name="title">
+         <string>Objects Panel</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_6">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_5">
+           <item>
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>Set Color</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="colorComboBox">
+             <item>
+              <property name="text">
+               <string>Red</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Black</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Gray</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Yellow</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>White</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <item>
+            <widget class="QLabel" name="x_label">
+             <property name="text">
+              <string>x</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDoubleSpinBox" name="cameraX"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="y_label">
+             <property name="text">
+              <string>y</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDoubleSpinBox" name="cameraY"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="z_label">
+             <property name="text">
+              <string>z</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDoubleSpinBox" name="cameraZ"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="RotateH_label">
+             <property name="text">
+              <string>RotateH_Elevation</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDoubleSpinBox" name="Elevation"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="RotateV_label">
+             <property name="text">
+              <string>RotateV_Azimuth</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDoubleSpinBox" name="Azimuth"/>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="drawCone_button">
+           <property name="text">
+            <string>Draw Cone</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="drawCube_button">
+           <property name="text">
+            <string>Draw Cube</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="drawCylinder_button">
+           <property name="text">
+            <string>Draw Cylinder</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="drawPyramid_button">
+           <property name="text">
+            <string>Draw Pyramid</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="drawSphere_button">
+           <property name="text">
+            <string>Draw Sphere</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="drawTube_button">
+           <property name="text">
+            <string>Draw Tube</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="drawDoughnut_button">
+           <property name="text">
+            <string>Draw Doughnut</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="drawCurvedCylinder_button">
+           <property name="text">
+            <string>Draw Curved Cylinder</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="drawSemiSphere_button">
+           <property name="text">
+            <string>Draw Semi Shpere</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>616</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionSave"/>
+    <addaction name="actionClose"/>
+   </widget>
+   <addaction name="menuFile"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QVTKOpenGLNativeWidget</class>
+   <extends>QOpenGLWidget</extends>
+   <header location="global">qvtkopenglnativewidget.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
