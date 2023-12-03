@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>616</width>
-    <height>697</height>
+    <height>727</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -56,6 +56,27 @@
        <widget class="QPushButton" name="deleteActor_button">
         <property name="text">
          <string>Delete Object</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="mergeObject_button">
+        <property name="text">
+         <string>Merge Objects</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Opacity</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSlider" name="opacity_horizontalSlider">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
         </property>
        </widget>
       </item>

@@ -25,6 +25,9 @@ MainWindow::MainWindow(QWidget* parent)
     InitializeSlotsAndSignals();
     InitializeCameraSettings();
 
+    ui->opacity_horizontalSlider->setRange(0, 100); // Slider range from 0 to 100
+    ui->opacity_horizontalSlider->setValue(100);    // Default value
+
     // Render and interact
     ui->openGLWidget->renderWindow()->SetWindowName("Paint3D | MedSoft");
 
@@ -77,6 +80,8 @@ void MainWindow::InitializeSlotsAndSignals() {
         this, &MainWindow::newSketch);
     QObject::connect(ui->deleteActor_button, &QPushButton::clicked, 
         this, &MainWindow::deleteActor);
+    QObject::connect(ui->opacity_horizontalSlider, &QSlider::valueChanged,
+        this, &MainWindow::onOpacitySliderValueChanged);
 
 
 }
@@ -136,7 +141,7 @@ void MainWindow::newSketch()
 /// </returns>
 vtkActor* MainWindow::pickActor() {
     mRenderWindow->GetInteractor()->SetPicker(picker);
-    picker->SetTolerance(0.001);
+    picker->SetTolerance(0.0001);
     picker->Pick(mRenderWindow->GetInteractor()->GetEventPosition()[0],
         mRenderWindow->GetInteractor()->GetEventPosition()[1],
         0,
@@ -251,6 +256,20 @@ void MainWindow::updateCameraElevation(double value) {
 /// </summary>
 void MainWindow::on_actionSave_triggered()
 {
+    if (mRenderer) {
+        vtkSmartPointer<vtkSTLWriter> stlWriter = vtkSmartPointer<vtkSTLWriter>::New();
+        QString fileName = QFileDialog::getSaveFileName(this, tr("Save STL File"), QString(), tr("STL (*.stl)"));
+        const char* charStr = fileName.toLatin1().constData();
+        if (!fileName.isEmpty())
+        {
+            stlWriter->SetFileName(charStr);
+            stlWriter->SetInputData(mRenderer->GetActors()->GetLastActor()->GetMapper()->GetInput());
+            stlWriter->Write();
+        }
+    }
+    
+
+    /*
     QImage img = ui->openGLWidget->grabFramebuffer();
     QString fileName = QFileDialog::getSaveFileName(this, tr("Save Image File"),
         QString(),
@@ -258,7 +277,8 @@ void MainWindow::on_actionSave_triggered()
     if (!fileName.isEmpty())
     {
         img.save(fileName);
-    }
+    }*/
+
 }
 
 /// <summary>
@@ -332,7 +352,6 @@ void MainWindow::onDrawCubeClick() {
     QString colorVariant = ui->colorComboBox->currentText();
     vtkStdString colorStd = colorVariant.toStdString();
     cubeActor->GetProperty()->SetColor(colors->GetColor4d(colorStd).GetData());
-
     //cubeActor->SetPosition(0, 0, -10);
     mRenderer->AddActor(cubeActor);
     mRenderer->ResetCamera();
@@ -762,3 +781,33 @@ void MainWindow::onDrawSemiSphereClick(){
     actors.append(HemiSphereActor);
 
 }
+
+/// <summary>
+///     Set the Opacity of the selected object.
+/// </summary>
+/// <param name="value"></param>
+void MainWindow::onOpacitySliderValueChanged(int value) {
+
+    // Map the slider value (0-100) to the opacity range (0.0-1.0)
+    double opacity = static_cast<double>(value) / 100.0;
+    vtkActor* selectedActor = pickActor();
+    if (selectedActor) {
+        selectedActor->GetProperty()->SetOpacity(opacity);
+        mRenderWindow->Render();
+    }
+    
+}
+
+
+/// <summary>
+///     To Merge two object together.
+/// </summary>
+void MainWindow::onMergeTwoObjects() {
+    
+    vtkActorCollection* Actors = mRenderer->GetActors();
+
+
+}
+
+//opacity_horizontalSlider
+//mergeObject_button

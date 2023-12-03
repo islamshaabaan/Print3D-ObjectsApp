@@ -14,6 +14,10 @@
 #include <QFileDialog>
 #include <QString>
 #include <QMouseEvent>
+#include <QSlider>
+
+#include <vtkSTLWriter.h>
+#include <vtkSTLReader.h>
 
 #include <QVTKRenderWidget.h>
 #include <vtkSmartPointer.h>
@@ -116,6 +120,8 @@ public slots:
     void updateCameraElevation(double value);
     void newSketch();
     void deleteActor();
+    void onOpacitySliderValueChanged(int value);
+    void onMergeTwoObjects();
 
 };
 
